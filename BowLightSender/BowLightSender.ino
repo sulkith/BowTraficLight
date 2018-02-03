@@ -5,6 +5,7 @@
 
 #define SEND_PIN 10
 #define BUTTON_PIN 9
+#define NUM_TRIES 5
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,7 +16,7 @@ void setup() {
   char msg[8] = {'s', 't', 'a', 'r', 't', 'b', 'o', 'w'};
   char msg2[8] = {'s', 't', 'o', 'p', 'b', 'o', 'w', 'l'};
   Serial.write("startsigbowlight");
-  for (int i = 0; i < 10; ++i)
+  for (int i = 0; i < NUM_TRIES; ++i)
   {
     vw_send((uint8_t *)msg, 8);
     Serial.println("startbow");
@@ -24,7 +25,7 @@ void setup() {
   }
   delay(2000);
 
-  for (int i = 0; i < 10; ++i)
+  for (int i = 0; i < NUM_TRIES; ++i)
   {
     vw_send((uint8_t *)msg2, 8);
     Serial.println("stopbowl");
