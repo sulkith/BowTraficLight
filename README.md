@@ -3,7 +3,7 @@ This Project is a Tracffic Light for FITA Tournaments.
 It consistsof two Parts the Sender and the Receiver.
 The Sender is a simple device which sends a Signal via the VirtualWire Library.
 The Receiver starts the Flow of the Tournament.
-* 20 s of time to get ready.
+* 20/10s s of time to get ready.
 * 120/240 s of time to shoot / 30s before the end the Light switches to Yellow.
 
 If group Mode is active this Flow is repeated twice otherwise the Device will enter the Idle Mode and wait for the next start
