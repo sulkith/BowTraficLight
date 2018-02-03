@@ -11,7 +11,7 @@ CRGB leds[WS2812_NUM_LEDS];
 #define SIR_PIN 8
 #define TIME_PIN 3
 #define GRP_PIN 4
-#define BLU_PIN 5
+#define FAST_PIN 5
 
 const unsigned long TwoMinutes = 120000;
 const unsigned long FourMinutes = 240000;
@@ -20,6 +20,7 @@ unsigned long TimeToShoot = TwoMinutes;
 unsigned long yellowPhase = 30000;
 unsigned long CooldownTime = 10000;
 unsigned long WarmupTime = 20000;
+const unsigned long WarmupTimeFast = 10000;
 bool BlueMode = false;
 bool GroupMode = false;
 
@@ -105,7 +106,7 @@ void setup() {
   FastLED.setBrightness( WS2812_BRIGHTNESS );
   pinMode(TIME_PIN, INPUT_PULLUP);
   pinMode(GRP_PIN, INPUT_PULLUP);
-  pinMode(BLU_PIN, INPUT_PULLUP);
+  pinMode(FAST_PIN, INPUT_PULLUP);
 
   if (digitalRead(TIME_PIN) == HIGH)
   {
@@ -118,8 +119,8 @@ void setup() {
     double_beep();
   }
 
-  if (digitalRead(BLU_PIN) == LOW)
-    BlueMode = true;
+  if (digitalRead(FAST_PIN) == LOW)
+    WarmupTime = WarmupTimeFast;
 
   delay(1000);
   if (digitalRead(GRP_PIN) == LOW)
